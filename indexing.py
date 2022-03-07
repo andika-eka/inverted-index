@@ -80,7 +80,7 @@ if __name__ == '__main__':
     
     with open("./output/postingList.csv", 'w') as file:
         for key, val in postingDict.items():
-            out = str(key+ ','+ ", ".join(map(str, val))+",\n")
+            out = str(key+ ',' + str(len(val)) +', '+ ", ".join(map(str, val))+",\n")
             file.write(out)
     
 
