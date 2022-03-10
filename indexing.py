@@ -60,10 +60,10 @@ if __name__ == '__main__':
     postingDict = dict()
     for item in tokenSorted:
         if item[0] in postingDict:
-            postingDict[item[0]].append(item[1])
+            postingDict[item[0]].add(item[1])
         else:
-            postingDict[item[0]] = [item[1]]
-    # print(postingDict)
+            postingDict[item[0]] = {item[1]}
+    print(postingDict)
 
     # output all result into a csv file
     if not os.path.exists("./output"):
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     
     with open("./output/postingList.csv", 'w') as file:
         for key, val in postingDict.items():
-            out = str(key+ ',' + str(len(val)) +', '+ ", ".join(map(str, val))+",\n")
+            out = str(key+ ',' + str(len(val)) +', '+ ", ".join(map(str, val))+"\n")
             file.write(out)
     
 
